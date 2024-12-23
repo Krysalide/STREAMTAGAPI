@@ -14,19 +14,15 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-
 st.image("stack_logo.jpeg", width=500)
-
 
 st.title("StackOverflow Tag Predictor")
 
-# Input text area
 user_input = st.text_area("Enter your text here:")
 
 
-API_URL = "http://127.0.0.1:8000/predict"  
-#API_URL="https://openclassroomp5-e8a3bgckg7hzdsej.westeurope-01.azurewebsites.net/predict"
+#API_URL = "http://127.0.0.1:8000/predict"  
+API_URL="https://openclassroomp5-e8a3bgckg7hzdsej.westeurope-01.azurewebsites.net/predict"
 
 
 if st.button("Get API Response"):

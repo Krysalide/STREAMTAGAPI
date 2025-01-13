@@ -9,35 +9,62 @@ import requests
 #         background-color: #081f37;
 #         color: white;
 #     }
+#     button[aria-pressed="true"] {
+#         background-color: #008CBA !important; /* Couleur initiale */
+#         color: white !important; /* Texte en blanc */
+#         border: none !important; /* Suppression de la bordure */
+#     }
+#     button[aria-pressed="true"]:hover {
+#         background-color: #007B9A !important; /* Couleur au survol */
+#     }
+#     .stButton > button {
+#         min-width: 150px; /* Largeur minimale */
+#         width: auto; /* Laissez les boutons s'adapter à leur contenu */
+#         white-space: normal; /* Permet aux noms longs de se répartir sur plusieurs lignes */
+#         word-wrap: break-word; /* Ajoute un retour à la ligne si nécessaire */
+#     }
 #     </style>
 #     """,
 #     unsafe_allow_html=True,
 # )
+
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: #081f37;
+        background-color:  #121558  ;
         color: white;
     }
     button[aria-pressed="true"] {
-        background-color: #008CBA !important; /* Couleur initiale */
-        color: white !important; /* Texte en blanc */
-        border: none !important; /* Suppression de la bordure */
+        background-color: #008CBA !important; /* Initial color */
+        color: white !important; /* Text color */
+        border: none !important; /* Remove border */
     }
     button[aria-pressed="true"]:hover {
-        background-color: #007B9A !important; /* Couleur au survol */
+        background-color: #007B9A !important; /* Hover color */
     }
     .stButton > button {
-        min-width: 150px; /* Largeur minimale */
-        width: auto; /* Laissez les boutons s'adapter à leur contenu */
-        white-space: normal; /* Permet aux noms longs de se répartir sur plusieurs lignes */
-        word-wrap: break-word; /* Ajoute un retour à la ligne si nécessaire */
+        min-width: 150px; /* Minimum width */
+        width: auto; /* Let buttons adjust to content */
+        white-space: normal; /* Allow long text to wrap */
+        word-wrap: break-word; /* Add line breaks if needed */
+        background-color:   #390d74  ; /* Default background color */
+        color: white; /* Default text color */
+        border: none; /* Remove default border */
+        font-size: 16px; /* Increase font size for better readability */
+        border-radius: 5px; /* Add rounded corners */
+        padding: 10px 15px; /* Adjust padding */
+        cursor: pointer; /* Show pointer cursor */
+    }
+    .stButton > button:hover {
+        background-color: #007B9A; /* Change background color on hover */
+        color: white; /* Keep text color white */
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 st.image("stack_logo.jpeg", width=500)
 
 st.title("StackOverflow Tag Predictor")

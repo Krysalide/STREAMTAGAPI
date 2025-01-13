@@ -2,31 +2,7 @@ import streamlit as st
 import requests  
 
 
-# st.markdown(
-#     """
-#     <style>
-#     .stApp {
-#         background-color: #081f37;
-#         color: white;
-#     }
-#     button[aria-pressed="true"] {
-#         background-color: #008CBA !important; /* Couleur initiale */
-#         color: white !important; /* Texte en blanc */
-#         border: none !important; /* Suppression de la bordure */
-#     }
-#     button[aria-pressed="true"]:hover {
-#         background-color: #007B9A !important; /* Couleur au survol */
-#     }
-#     .stButton > button {
-#         min-width: 150px; /* Largeur minimale */
-#         width: auto; /* Laissez les boutons s'adapter à leur contenu */
-#         white-space: normal; /* Permet aux noms longs de se répartir sur plusieurs lignes */
-#         word-wrap: break-word; /* Ajoute un retour à la ligne si nécessaire */
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True,
-# )
+
 
 st.markdown(
     """
@@ -35,6 +11,18 @@ st.markdown(
         background-color:  #121558  ;
         color: white;
     }
+    label[for="user_text"] {
+        color: white !important;
+        font-size: 16px; /* Optional: Adjust font size */
+        font-weight: bold; /* Optional: Make it bold */
+    }
+
+    textarea {
+        background-color: #0d3b66; /* Optional: Set a background color for the text area */
+        color: white; /* Ensure the text inside the text area is white */
+        border: 1px solid #4CAF50; /* Optional: Add a border color */
+    }
+
     button[aria-pressed="true"] {
         background-color: #008CBA !important; /* Initial color */
         color: white !important; /* Text color */
@@ -68,8 +56,6 @@ st.markdown(
 st.image("stack_logo.jpeg", width=500)
 
 st.title("StackOverflow Tag Predictor")
-
-
 
 
 # predefined_texts = [
@@ -107,7 +93,6 @@ button_labels = [
 ]
 assert len(predefined_texts) == len(button_labels), "Number of predefined texts and button labels should be the same."
 
-# Create a horizontal row of buttons
 st.markdown("### Predefined Questions:")
 col_buttons = st.columns(len(predefined_texts))
 
@@ -126,8 +111,9 @@ for i in range(4, 8):
     if cols_line2[i - 4].button(button_labels[i]):
         st.session_state["user_input"] = predefined_texts[i]
 
+st.markdown("### You can also enter your own text:")
 # Text area for user input
-user_input = st.text_area("Enter your text here:", value=st.session_state["user_input"], key="user_text")
+user_input = st.text_area("Enter your own text", value=st.session_state["user_input"], key="user_text",label_visibility="hidden")
 
 #API_URL = "http://127.0.0.1:8000/predict"  
 API_URL="https://openclassroomp5-e8a3bgckg7hzdsej.westeurope-01.azurewebsites.net/predict"
